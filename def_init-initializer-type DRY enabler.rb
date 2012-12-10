@@ -27,12 +27,12 @@ if method_to_enable == :better_init
 			num_other_args = b.arity
 			define_method(:__init_proc) {b}
 			params = args.join(", ")
-			vars = args.collect{|a| "@#{a}"}.join(", ")
+			vars = args.map{|a| "@#{a}"}.join(", ")
 		
 			class_eval <<-EOS
 	def initialize(#{params})
 		#{vars} = #{params}
-		instance_eval &__init_proc
+		instance_eval(& __init_proc)
 	end
 			EOS
 		end
