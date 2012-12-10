@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 method_to_enable = [:normal, :def_init, :initializer, :better_init][3]
 
 if method_to_enable == :normal
