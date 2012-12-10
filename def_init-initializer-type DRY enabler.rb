@@ -5,12 +5,12 @@ method_to_enable = [:normal, :def_init, :initializer, :better_init][3]
 if method_to_enable == :normal
 	# the normal, redundant way to do it
 	class Person
-		def initialize(name, age, gender=:male, friends=["John", "Bob"])
+		def initialize(name, age, gender=:male, friends=["John", "Bob"], &creation_message_listener)
 			@name = name
 			@age = age
 			@gender = gender
 			@best_friend = friends.first
-			yield "I’m alive!"
+			creation_message_listener.call("I’m alive!")
 		end
 	end
 end
