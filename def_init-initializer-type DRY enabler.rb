@@ -98,8 +98,9 @@ class Person
 		"Person: " + [@name, @age, @gender].join(", ")
 	end
 end
-me = Person.new("Rory", 19, :male) if [:def_init, :initializer].include?(method_to_enable)
-if [:normal, :better_init].include?(method_to_enable)
+if [:def_init, :initializer].include?(method_to_enable)
+	me = Person.new("Rory", 19, :male)
+elsif [:normal, :better_init].include?(method_to_enable)
 	me = Person.new("Rory", 19) do |message|
 		puts "NAME says “#{message}”"
 	end
