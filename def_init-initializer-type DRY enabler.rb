@@ -38,7 +38,7 @@ if method_to_enable == :better_init
 		end
 	end
 	class Person
-		better_init(:name, :age, :gender) do |friends=["John", "Bob"]|
+		better_init(:name, :age, {:gender => :male}) do |friends=["John", "Bob"]|
 			@best_friend = friends.first
 			yield "I’m alive!"
 		end
